@@ -52,5 +52,5 @@ if __name__ == "__main__":
     if os.name == "nt":
         data.to_csv("%s\\simple_example.csv" % home_path, index=False)
     else:
-        data.to_csv("%s/simple_example.csv" % home_path, index=False)
+        data.to_csv(f"{home_path}/simple_example.csv", index=False)
     visualize_data(data)

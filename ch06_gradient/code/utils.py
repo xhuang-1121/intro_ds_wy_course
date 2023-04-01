@@ -51,9 +51,13 @@ def create_linear_model(dimension):
     y_pred = tf.matmul(x, beta_pred, name="y_pred")
     # 定义损失函数
     loss = tf.reduce_mean(tf.square(y_pred - y))
-    model = {"loss_function": loss, "independent_variable": x,
-             "dependent_variable": y, "prediction": y_pred, "model_params": beta_pred}
-    return model
+    return {
+        "loss_function": loss,
+        "independent_variable": x,
+        "dependent_variable": y,
+        "prediction": y_pred,
+        "model_params": beta_pred,
+    }
 
 
 def create_summary_writer(log_path):
@@ -68,8 +72,7 @@ def create_summary_writer(log_path):
     """
     if tf.gfile.Exists(log_path):
         tf.gfile.DeleteRecursively(log_path)
-    summary_writer = tf.summary.FileWriter(log_path, graph=tf.get_default_graph())
-    return summary_writer
+    return tf.summary.FileWriter(log_path, graph=tf.get_default_graph())
 
 
 def gradient_descent(X, Y, model, learning_rate=0.01, max_iter=10000, tol=1.e-6):

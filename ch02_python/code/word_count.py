@@ -27,4 +27,4 @@ def word_count(data):
 
 if __name__ == "__main__":
     data = ["a", "b", "a", "c"]
-    print("The result is %s" % word_count(data))
+    print(f"The result is {word_count(data)}")
