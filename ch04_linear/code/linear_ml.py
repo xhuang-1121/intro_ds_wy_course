@@ -24,8 +24,7 @@ def read_data(path):
     ----
     data: DataFrame，建模数据
     """
-    data = pd.read_csv(path)
-    return data
+    return pd.read_csv(path)
 
 
 def train_model(x, y):
@@ -122,6 +121,6 @@ if __name__ == "__main__":
     if os.name == "nt":
         data_path = "%s\\simple_example.csv" % home_path
     else:
-        data_path = "%s/simple_example.csv" % home_path
+        data_path = f"{home_path}/simple_example.csv"
     data = read_data(data_path)
     run_model(data)

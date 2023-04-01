@@ -15,7 +15,7 @@ def generate_data():
     随机生成数据
     """
     # Python2和Python3的range并不兼容，所以使用list(range(xx, xx))
-    x = np.array(list(range(0, 100)))
+    x = np.array(list(range(100)))
     error = np.round(np.random.randn(100), 2)
     y = x + error
     return pd.DataFrame({"x": x, "y": y})
@@ -59,7 +59,7 @@ def run():
     coefs = []
     intercepts = []
     # 循环运行1000次
-    for i in range(1000):
+    for _ in range(1000):
         data = generate_data()
         model = train_model(data[features], data[label])
         # 记录每一次参数a的估计值

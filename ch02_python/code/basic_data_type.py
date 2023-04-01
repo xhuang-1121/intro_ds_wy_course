@@ -7,6 +7,7 @@ Created on Sat Oct 20 15:54:51 2018
 """
 
 
+
 # 元组的操作方法
 t = (1, 2, 3, "a", "b")
 
@@ -17,7 +18,7 @@ t[0]
 t[-1]
 
 # 取1-3个元素
-t[0: 3]
+t[:3]
 
 # 列表的操作方法
 y = [1, 2, 3, 4]
@@ -32,7 +33,7 @@ y[-1]
 y.append("aa")
 
 # 将两个列表合并成为一个列表
-y = y + ["bb", "cc"]
+y += ["bb", "cc"]
 
 # 在index=3处，插入new_item这样一个元素
 y.insert(3, "new_item")
@@ -61,4 +62,4 @@ for i in t:
 
 # 遍历字典
 for i in d:
-    print("the key is %s" % i, "the value is %s" % d[i])
+    print(f"the key is {i}", f"the value is {d[i]}")

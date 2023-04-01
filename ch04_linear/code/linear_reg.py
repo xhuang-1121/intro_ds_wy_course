@@ -17,8 +17,7 @@ def read_data(path):
     """
     使用pandas读取数据
     """
-    data = pd.read_csv(path)
-    return data
+    return pd.read_csv(path)
 
 
 def generate_random_var():
@@ -47,9 +46,9 @@ def visualize_model(X, Y, alphas, coefs):
     fig = plt.figure(figsize=(6, 6), dpi=80)
     # 在图形框里只画一幅图
     ax = fig.add_subplot(1, 1, 1)
-    ax.plot(alphas, coefs[:, 1], "r:", label=u'%s' % "a")
-    ax.plot(alphas, coefs[:, 2], "g", label=u'%s' % "b")
-    ax.plot(alphas, coefs[:, 0], "b-.", label=u'%s' % "c")
+    ax.plot(alphas, coefs[:, 1], "r:", label='a')
+    ax.plot(alphas, coefs[:, 2], "g", label='b')
+    ax.plot(alphas, coefs[:, 0], "b-.", label='c')
     legend = plt.legend(loc=4, shadow=True)
     legend.get_frame().set_facecolor("#6F93AE")
     ax.set_yticks(np.arange(-1, 1.3, 0.3))
@@ -86,6 +85,6 @@ if __name__ == "__main__":
     if os.name == "nt":
         data_path = "%s\\simple_example.csv" % home_path
     else:
-        data_path = "%s/simple_example.csv" % home_path
+        data_path = f"{home_path}/simple_example.csv"
     data = read_data(data_path)
     run_model(data)

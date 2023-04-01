@@ -33,8 +33,7 @@ def train_OLS(x, y):
     """
     model = linear_model.LinearRegression()
     model.fit(x, y)
-    re = model.predict(x)
-    return re
+    return model.predict(x)
 
 
 def train_LAD(x, y):
@@ -44,8 +43,7 @@ def train_LAD(x, y):
     X = sm.add_constant(x)
     model = QuantReg(y, X)
     model = model.fit(q=0.5)
-    re = model.predict(X)
-    return re
+    return model.predict(X)
     
     
 def visualize_model(x, y, ols, lad):

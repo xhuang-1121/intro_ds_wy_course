@@ -14,7 +14,7 @@ def generate_data():
     随机生成数据
     """
     # Python2和Python3的range并不兼容，所以使用list(range(xx, xx))
-    x = np.array(list(range(0, 100)))
+    x = np.array(list(range(100)))
     error = np.round(np.random.randn(100), 2)
     y = x + error
     return pd.DataFrame({"x": x, "y": y})
@@ -26,9 +26,7 @@ def train_model(x, y):
     """
     # 创建一个线性回归模型
     model = sm.OLS(y, x)
-    # 训练模型，估计模型参数
-    re = model.fit()
-    return re
+    return model.fit()
 
 
 def visualize_ci(ci):
@@ -61,7 +59,7 @@ def run():
     label = ["y"]
     ci = []
     # 循环运行100次
-    for i in range(100):
+    for _ in range(100):
         data = generate_data()
         X = sm.add_constant(data[features])
         re = train_model(X, data[label])

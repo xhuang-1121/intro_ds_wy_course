@@ -26,8 +26,7 @@ def read_data(path):
     ----
     data: DataFrame，建模数据
     """
-    data = pd.read_csv(path)
-    return data
+    return pd.read_csv(path)
 
 
 def train_model(x, y):
@@ -46,9 +45,7 @@ def train_model(x, y):
     """
     # 创建一个线性回归模型
     model = sm.OLS(y, x)
-    # 训练模型，估计模型参数
-    res = model.fit()
-    return res
+    return model.fit()
 
 
 def model_summary(res):
@@ -124,6 +121,6 @@ if __name__ == "__main__":
     if os.name == "nt":
         data_path = "%s\\simple_example.csv" % home_path
     else:
-        data_path = "%s/simple_example.csv" % home_path
+        data_path = f"{home_path}/simple_example.csv"
     data = read_data(data_path)
     run_model(data)
